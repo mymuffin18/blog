@@ -1,0 +1,26 @@
+<div class="col-lg-12">
+<%= form_with model: @article do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label'%><br>
+    <%= form.text_field :title, class: 'form-control' %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div class="text-danger"><%= message %></div>
+    <% end %>
+  </div>
+  <div class="mb-3">
+    <%= form.file_field :image, class: 'form-control'%>
+  </div>
+  <div class='mb-3'>
+    <%= form.label :body, class: 'form-label' %>
+    <%= form.text_area :body, class: 'form-control' %>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div class='text-danger'><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class='mb-3'>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+</div>
